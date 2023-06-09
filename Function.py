@@ -163,7 +163,7 @@ def get_current_price(code,ACCESS_TOKEN):
 
 # 매수가 설정 ( 지난 3개월 동안의 최저가 +10%)
 def get_target_price(lowest_price,current_price,buy_amount):
-    target_price = lowest_price + (lowest_price * 0.1)
+    target_price = lowest_price + (lowest_price * 10 / 100)
     buy_count = 0
     if lowest_price <= current_price <= target_price:
         #종목별 주문 금액으로 주문 가능한지 여부 
@@ -172,6 +172,7 @@ def get_target_price(lowest_price,current_price,buy_amount):
     return buy_count
 
 # 주식 시장가 매수
+
 def buy(ACCESS_TOKEN,code, qty):
     PATH = "uapi/domestic-stock/v1/trading/order-cash"
     URL = f"{URL_BASE}/{PATH}"
