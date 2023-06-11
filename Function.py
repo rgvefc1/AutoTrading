@@ -9,7 +9,7 @@ import subprocess
 
 
 #Config 값 읽어오기.
-with open('C:/Users/rgvef/Git/AutoTrading/config.yaml', encoding='UTF-8') as f:
+with open('D:/Git/AutoTrading/config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
 APP_KEY = _cfg['APP_KEY']
 APP_SECRET = _cfg['APP_SECRET']
@@ -44,8 +44,8 @@ def send_message(msg):
     requests.post(DISCORD_WEBHOOK_URL, data=message)
     print(message)
 
-#토큰 발급
 def get_access_token():
+    """토큰 발급"""
     headers = {"content-type":"application/json"}
     body = {"grant_type":"client_credentials",
     "appkey":APP_KEY, 
